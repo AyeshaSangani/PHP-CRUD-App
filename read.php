@@ -8,7 +8,6 @@ include 'connection.php';
 
 <!doctype html>
 <html lang="en">
-    
 
 <head>
     <meta charset="utf-8">
@@ -21,7 +20,7 @@ include 'connection.php';
 
 
     <!-- ============ -->
-    <div class="header p-3 text-center text-white" style="background-color: black; border-top:5px solid darkgoldenrod ;">
+    <div class="header p-3 text-center text-white " style="background-color: black; border-top:5px solid  rgba(212, 85, 25, 0.87) ;">
     <!-- <div class="topbar bg-dark text-center text-white p-3"> -->
         <h3><b><u>CRUD APP using PHP</u></b></h3>
     </div>
@@ -32,9 +31,9 @@ include 'connection.php';
     <div class="container">
 
         <div class="card p-3 mt-5">
-            <h2 class="text-uppercase"><b><u>Keep Notes Display Data </u></b></h2>
+            <h2 class="text-uppercase"><b><u>Keep Notes: Display Data </u></b></h2>
 
-
+<br>
             <table class="table">
          <thead>
             <tr>
@@ -46,19 +45,52 @@ include 'connection.php';
          </thead>
 
          <tbody>
-            <tr>
-                <th scope="row">01</th>
-                <td>abc</td>
-                <td>xyz</td>
+
+                  <?php
+                  
+
+                $sql = "select * from keepnotes.stickynotes ";
+
+                $result = mysqli_query($connection , $sql );
+
+                if ($result) {
+                
+                    // $row = mysqli_fetch_assoc($result);
+                    // echo $row ['title'];
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+                       
+                         
+                         $id = $row['id'];
+                         $title = $row['title'];
+                         $msg = $row['msg'];
+
+                           echo '
+                            <tr>
+                <th scope="row">'.$id.'</th>
+                <td>'.$title.'</td>
+                <td>'.$msg.'</td>
                 <td>
                 <a href="#" class="btn btn-info">Update</a>
                 <a href="#" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
+                         
+                         ';
+                    }
+                }
+                  
+                  
+                  ?>
+
+
+
+
+         
          </tbody>
          </table>
 
-         <a href="./index.php" class="btn btn-outline-primary">Go to Add Data</a>
+         <a href="./index.php" class="btn btn-outline-warning" style=" text-align-center ; justify-content-center ; align-items-center" >Go to Add Data</a>
 
         </div>
 
@@ -72,3 +104,4 @@ include 'connection.php';
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </html>
+

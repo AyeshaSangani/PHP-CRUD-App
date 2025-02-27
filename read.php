@@ -17,6 +17,7 @@ include 'connection.php';
 
     <!-- ================== -->
     <link rel="icon" type="image/png" href="./l.webp">
+    
 
 
 </head>
@@ -77,7 +78,7 @@ include 'connection.php';
                 <td>' . $msg . '</td>
                 <td>
                 <a href="./update.php?updateid='.$id.'" class="btn btn-info">Update</a>
-                <a href="#" class="btn btn-danger">Delete</a>
+                <a href="./delete.php?deleteid='.$id.'"" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
                          

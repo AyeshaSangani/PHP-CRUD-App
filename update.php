@@ -99,7 +99,7 @@ $row = mysqli_fetch_assoc($result);
 
             </form>
 
-            <a href="./read.php" class="btn btn-outline-secondary mt-3"> Visit All Data </a>
+            <a href="./read.php" class="btn btn-info mt-3"> View All Data </a>
 
         </div>
 
